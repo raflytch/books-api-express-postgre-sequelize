@@ -3,8 +3,11 @@ const PORT = process.env.PORT;
 const express = require("express");
 const app = express();
 const booksRouter = require("./routes/books");
+const logsMiddleware = require("./middlewares/logs");
 
 app.use(express.json());
+
+app.use(logsMiddleware);
 
 app.use("/books", booksRouter);
 
